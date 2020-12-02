@@ -229,5 +229,20 @@ Verifique a linha $CFG->dataroot = '/var/moodledata';
 <p>Agora você será redirecionado para página do moodle, igual a imagem abaixo:</p>
 
 ![](10_InstalaçãoMoodle.png)
+
+<br/>
+
+<hr/>
+
+<br/>
+
+## Referências
+
+[Instalação do Moodle](https://docs.moodle.org/all/pt_br/Instala%C3%A7%C3%A3o_do_Moodle_no_Ubuntu)
+
+[Step-by-step Installation Guide for Ubuntu](https://docs.moodle.org/310/en/Step-by-step_Installation_Guide_for_Ubuntu)
+
+[How To Install Moodle On Ubuntu 18.04](https://cloudcone.com/docs/article/how-to-install-moodle-on-ubuntu-18-04/)
+
   
 </div>

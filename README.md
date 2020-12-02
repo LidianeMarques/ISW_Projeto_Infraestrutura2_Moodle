@@ -121,7 +121,113 @@ sudo tar xvfz moodle-latest-310.tgz
 http://seu_ip_localhost/moodle
 ~~~
 
+<p>Isso abrirá a página de instalação do moodle pela web que oferece a opção de selecionar seu idioma. Selecione seu idioma preferido e clique em 'Próximo'.</p>
 
+![](1_InstalaçãoMoodle.png)
 
+<p>A próxima página, será onde você verificará o caminho para o diretório moodle e o armazenamento de dados. Clique em 'Next'</p>
+
+![](2_InstalaçãoMoodle.png)
+
+![](3_InstalaçãoMoodle.png)
   
-  </div>
+<p>Nessa parte, caso o endereço seja diferente é necessário alterá-lo no campo endereço web O moodle também mostra nesta tela o diretório onde será instalado que no nosso caso é o diretório /var/www/moodle</p>
+
+>:information_source: __Nota:__ Antes de ir para a próxima página, faça essas configurações abaixo:
+
+<p>Crie o Diretório  /var/moodledata usando o comando:</p>
+
+~~~shell
+mkdir /var/moodledata
+~~~
+
+<p>É necessário também conceder ao diretório moodledata todos os privilégios de acesso usando o comando:</p>
+
+~~~shell
+chmod 777 moodledata
+~~~
+
+<p>Feita isso, é necessário restartar o apache com o comando:</p>
+  
+~~~shell
+/etc/init.d/apache2 restart
+~~~
+
+<p>Atualize esta página da Web (F5) E clique no botão "Next" </p>
+<p>Nesta página você deixa como padrão o Mysql nativo do moodle e só aperte o botão "Next" </p>
+
+![](4_InstalaçãoMoodle.png)
+
+<p>Nesta tela de configuração do banco de dados devemos informar:</p>
+
+
+* Servidor hospedeiro do banco de dados: localhost
+* Nome do banco de dados: moodle
+* Usuário do banco: moodle
+* Senha do banco: moodle
+
+![](5_InstalaçãoMoodle.png)
+
+<p>Depois de fazer as configurações do banco de dados, a tela seguinte irá mostar um aviso de direitos autorais, é só clicar no botão "Next".  </p>
+
+![](6_InstalaçãoMoodle.png)
+
+>:information_source: __Nota:__  __Antes de ir para a próxima página, faça essas configurações abaixo:__
+
+<p>Como root acesse o terminal e faça os seguintes comandos:</p>
+<p>Entre no diretório cd /var/www/moodle</p>
+
+~~~shell
+cd /var/www/moodle
+~~~
+
+~~~shell
+cp config-dist.php config.php
+~~~
+
+~~~shell
+chmod 777 config.php
+~~~
+
+<p>Feito isso, abra o arquivo config.php com o seu editor favorito, por exemplo: nano, vim ... </p>
+<p> Verifique as seguintes linhas:</p>
+
+~~~shell
+$CFG->dbtype = 'mysql'; // mysql or postgres7 (por enquanto)
+$CFG->dbhost = 'localhost'; // por exemplo: localhost ou db.isp.com
+$CFG->dbname = 'moodle'; // nome do banco de dados, por exemplo, moodle
+$CFG->dbuser = 'moodle'; // nome de usuário do seu banco de dados
+$CFG->dbpass = 'moodle'; // sua senha de banco de dados
+$CFG->prefix = 'mdl_'; // Prefixo a ser usado para todos os nomes de tabela
+Verifique a linha $CFG->wwwroot = 'http://seu_ip_localhost/moodle';
+Verifique a linha $CFG->dirroot = '/var/www/moodle';
+Verifique a linha $CFG->dataroot = '/var/moodledata';
+~~~
+
+<b>Elas devem estar exatamente deste jeito</b>
+
+<p>Salve e feche o arquivo config.php</p>
+
+<p>Agora sim, depois de fazer essas alterações, clique em botão "Next" </p>
+<p>O moodle fará outra verredura no sistema para verificar se o ambiente é compatível ou não, a tela será igual a imagem abaixo:</p>
+
+![](7_InstalaçãoMoodle.png)
+
+<p>E se todos os requisitos forem atendidos, clique em 'Continuar'</p>
+
+![](8_InstalaçãoMoodle.png)
+
+![](11_InstalaçãoMoodle.png)
+
+<p>Se tudo der certo, a próxima página será onde você preencherá os detalhes do usuário administrador</p>
+
+![](9_InstalaçãoMoodle.png)
+
+<p>Depois de preencher essas informações, salve as alterações.</p>
+<p>PRONTO! O MOODLE ESTÁ PRONTO PARA SER UTILIZADO.</p>
+
+<p>Agora você será redirecionado para página do moodle, igual a imagem abaixo:</p>
+
+![](10_InstalaçãoMoodle.png)
+  
+</div>
